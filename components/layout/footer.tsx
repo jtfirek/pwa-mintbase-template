@@ -1,6 +1,4 @@
-import { BuyMeACoffee } from "../shared/icons";
 
-import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -8,22 +6,21 @@ export default function Footer() {
       <p className="text-gray-500">
         Built by {" "}
         <a
-          className="font-semibold text-gray-600 underline-offset-4 transition-colors hover:underline"
+          className="font-semibold text-gray-600 underline-offset-4 transition-colors hover:underline mr-4"
           href="https://github.com/jtfirek"
           target="_blank"
           rel="noopener noreferrer"
         >
           Jacob Firek 
         </a>
-        Powered by {" "}
-        <Image 
-          src="/../app/mintbase-logo.avif"
-          alt="Mintbase Logo" 
-          width={100}
-          height={100}
-          className="ml-2" 
-        />
-
+         Powered by {" "}
+         <a href="https://www.mintbase.xyz/" target="_blank" rel="noopener noreferrer">
+            <img 
+              src="/mintbase-logo.avif"
+              alt="Mintbase Logo" 
+              className="inline-block align-middle h-8"
+            />
+        </a>
       </p>
     </div>
   );

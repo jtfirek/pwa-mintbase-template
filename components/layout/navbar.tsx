@@ -1,51 +1,28 @@
-"use client";
+// import { useWallet } from '@mintbase-js/react';
+// import { MbButton } from 'mintbase-ui';
 
-import Image from "next/image";
-import Link from "next/link";
-import useScroll from "@/lib/hooks/use-scroll";
-import { useSignInModal } from "./sign-in-modal";
-import UserDropdown from "./user-dropdown";
-import { Session } from "next-auth";
+// function Header(): JSX.Element {
+//   const {
+//     isConnected, connect, disconnect, activeAccountId,
+//   } = useWallet();
 
-export default function NavBar({ session }: { session: Session | null }) {
-  const { SignInModal, setShowSignInModal } = useSignInModal();
-  const scrolled = useScroll(50);
+//   const buttonLabel = isConnected
+//     ? `Sign Out ${activeAccountId}`
+//     : ' Connect NEAR Wallet';
 
-  return (
-    <>
-      <SignInModal />
-      <div
-        className={`fixed top-0 w-full flex justify-center ${
-          scrolled
-            ? "border-b border-gray-200 bg-white/50 backdrop-blur-xl"
-            : "bg-white/0"
-        } z-30 transition-all`}
-      >
-        <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between w-full">
-          <Link href="/" className="flex items-center font-display text-2xl">
-            <Image
-              src="/logo.png"
-              alt="Precedent logo"
-              width="30"
-              height="30"
-              className="mr-2 rounded-sm"
-            ></Image>
-            <p>Precedent</p>
-          </Link>
-          <div>
-            {session ? (
-              <UserDropdown session={session} />
-            ) : (
-              <button
-                className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black"
-                onClick={() => setShowSignInModal(true)}
-              >
-                Sign In
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
+//   const buttonAction = isConnected ? disconnect : connect;
+
+//   return (
+//     <nav className="flex justify-between w-full bg-white sticky top-0 z-40 lg:border-b border-solid border-gray-150">
+//       <div className="flex justify-between items-center">
+//         <h1 className="font-light p-2 sm:p-4 border-gray-100">Market</h1>
+//       </div>
+//       {/** login/logout with wallet */}
+//       <div className="flex items-center sm:mr-2">
+//         <MbButton onClick={buttonAction} label={buttonLabel} />
+//       </div>
+//     </nav>
+//   );
+// }
+
+// export default Header;

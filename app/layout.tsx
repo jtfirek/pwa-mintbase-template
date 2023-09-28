@@ -2,9 +2,10 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import cx from "classnames";
 import { sfPro, inter } from "./fonts";
-import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
+import { useWallet } from '@mintbase-js/react';
+import { ESize, MbButton } from 'mintbase-ui';
 
 export const metadata = {
   title: "Precedent - Building blocks for your Next.js project",
@@ -29,10 +30,9 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={cx(sfPro.variable, inter.variable)}>
-        <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
         <Suspense fallback="...">
           {/* @ts-expect-error Server Component */}
-          <Nav />
+          {/* <NearWalletConnector /> */}
         </Suspense>
           <main className="flex w-full flex-col items-center justify-center py-32">
             {children}
@@ -42,4 +42,15 @@ export default async function RootLayout({
       </body>
     </html>
   );
+}
+
+
+const  NearWalletConnector = () => {
+  const {
+    connect,
+    isConnected,
+  } = useWallet();
+  return (
+    <MbButton onClick={connect} label={'Connect to NEAR Wallet'} size={ESize.BIG}/>
+  )
 }

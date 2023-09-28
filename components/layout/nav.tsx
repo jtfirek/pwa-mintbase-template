@@ -1,8 +1,14 @@
-import Navbar from "./navbar";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+// import { useWallet } from '@mintbase-js/react';
+// import { ESize, MbButton } from 'mintbase-ui';
 
-export default async function Nav() {
-  const session = await getServerSession(authOptions);
-  return <Navbar session={session} />;
-}
+// function Header(): JSX.Element {
+//   const {
+//     connect,
+//     isConnected,
+//   } = useWallet();
+//   return (
+//     <MbButton onClick={connect} label={'Connect to NEAR Wallet'} size={ESize.BIG}/>
+//   );
+// }
+
+// export default Header;
